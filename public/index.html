@@ -7,32 +7,54 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #f9f7f4;
+    --bg: #fffaf3;
     --surface: #ffffff;
-    --surface2: #f2f0ec;
-    --border: #e2dfd8;
-    --border2: #ccc9c0;
-    --text: #1a1916;
-    --text2: #6b6860;
-    --text3: #9e9b93;
-    --red: #c0392b;
-    --red-bg: #fdf0ee;
-    --red-border: #f5c6c1;
-    --green: #1e7e4a;
-    --green-bg: #edf7f1;
-    --green-border: #b8e5cc;
-    --blue: #1a5fa8;
-    --blue-bg: #edf3fc;
-    --blue-border: #b8d0f5;
-    --amber: #92570a;
-    --amber-bg: #fdf5e6;
-    --amber-border: #f5dfa0;
-    --radius: 10px;
-    --radius-sm: 6px;
+    --surface2: #fff2e2;
+    --border: #ffe2c2;
+    --border2: #ffcf9e;
+    --text: #2e2620;
+    --text2: #6f6255;
+    --text3: #a89a89;
+
+    --brand: #ff7a4a;      /* main accent — cheerful coral-orange */
+    --brand-dark: #f4602c;
+    --brand-bg: #ffe8dc;
+    --brand-border: #ffc4a8;
+
+    --gold: #ffb612;       /* attendee pricing — sunny yellow */
+    --gold-bg: #fff3d2;
+    --gold-border: #ffdd82;
+
+    --teal: #12b892;       /* vendor/booth info — fresh mint */
+    --teal-bg: #dcf7ef;
+    --teal-border: #9de7d4;
+
+    --blue: #2f97e0;       /* logistics/location — sky blue */
+    --blue-bg: #e2f2fd;
+    --blue-border: #a8dcf9;
+
+    --purple: #9066e0;     /* policy/reference — soft violet */
+    --purple-bg: #f0eafd;
+    --purple-border: #d3c1f5;
+
+    --red: #ef5350;
+    --red-bg: #fde8e7;
+    --red-border: #f7bcba;
+    --green: #21a95e;
+    --green-bg: #e2f7ea;
+    --green-border: #a6e6c1;
+
+    --radius: 16px;
+    --radius-sm: 9px;
   }
 
   body {
-    background: var(--bg);
+    background:
+      radial-gradient(ellipse 700px 400px at 10% 0%, #ffe4cf 0%, transparent 60%),
+      radial-gradient(ellipse 600px 450px at 100% 15%, #d6f3ff 0%, transparent 55%),
+      radial-gradient(ellipse 600px 400px at 40% 100%, #dcfbf0 0%, transparent 55%),
+      var(--bg);
+    background-attachment: fixed;
     color: var(--text);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 15px;
@@ -40,109 +62,157 @@
     min-height: 100vh;
   }
 
-  .page { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .page { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
 
   /* Header */
   .header {
     display: flex; align-items: center; gap: 16px;
-    margin-bottom: 2rem; padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.75rem; padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--border);
   }
   .logo {
-    width: 48px; height: 48px; background: var(--red);
+    width: 52px; height: 52px;
+    background: linear-gradient(135deg, var(--brand), var(--brand-dark));
     border-radius: var(--radius); display: flex; align-items: center;
-    justify-content: center; font-size: 26px; flex-shrink: 0;
+    justify-content: center; font-size: 28px; flex-shrink: 0;
+    box-shadow: 0 3px 10px rgba(224,93,60,0.35);
   }
-  .header h1 { font-size: 21px; font-weight: 700; }
+  .header h1 { font-size: 22px; font-weight: 800; }
   .header p { font-size: 13px; color: var(--text2); margin-top: 2px; }
 
   /* Info box */
   .info-box {
     background: var(--blue-bg); border: 1px solid var(--blue-border);
-    border-radius: var(--radius); padding: 0.9rem 1.1rem;
+    border-radius: var(--radius); padding: 1rem 1.15rem;
     margin-bottom: 1.25rem; font-size: 13px; color: var(--blue); line-height: 1.6;
   }
-  .info-box strong { font-weight: 600; }
+  .info-box strong { font-weight: 700; }
   .info-box a { color: var(--blue); }
-  .quick-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .quick-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
   .quick-link {
-    font-size: 12px; padding: 4px 11px; background: var(--surface);
+    font-size: 12px; font-weight: 600; padding: 5px 12px; background: var(--surface);
     border: 1px solid var(--blue-border); border-radius: 20px;
     color: var(--blue); text-decoration: none;
   }
-  .quick-link:hover { background: #ddeafa; }
+  .quick-link:hover { background: var(--blue-border); }
 
   /* Scan card */
   .scan-card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1.5rem;
+    border-radius: var(--radius); padding: 1.4rem; margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(36,31,24,0.04);
   }
-  .scan-card label { font-size: 13px; font-weight: 600; color: var(--text2); display: block; margin-bottom: 8px; }
+  .scan-card label { font-size: 13px; font-weight: 700; color: var(--text2); display: block; margin-bottom: 8px; }
   .url-row { display: flex; gap: 8px; }
   .status-bar { font-size: 13px; color: var(--text3); min-height: 20px; margin-top: 10px; }
   .status-bar.loading { color: var(--blue); }
   .status-bar.error { color: var(--red); }
-  .status-bar.ok { color: var(--green); }
+  .status-bar.ok { color: var(--green); font-weight: 600; }
 
   /* Form elements */
   input[type="url"], input[type="text"] {
-    width: 100%; padding: 9px 12px; border: 1px solid var(--border);
+    width: 100%; padding: 10px 13px; border: 1.5px solid var(--border);
     border-radius: var(--radius-sm); background: var(--surface);
     color: var(--text); font-size: 14px; font-family: inherit; outline: none;
   }
-  input:focus { border-color: var(--border2); }
+  input:focus { border-color: var(--brand); }
   button {
-    padding: 9px 18px; border: 1px solid var(--border); border-radius: var(--radius-sm);
-    background: var(--surface); color: var(--text); font-size: 14px;
+    padding: 10px 20px; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+    background: var(--surface); color: var(--text); font-size: 14px; font-weight: 600;
     font-family: inherit; cursor: pointer; white-space: nowrap;
-    transition: background 0.12s, border-color 0.12s;
+    transition: background 0.12s, border-color 0.12s, transform 0.08s;
   }
   button:hover { background: var(--surface2); border-color: var(--border2); }
+  button:active { transform: scale(0.98); }
   button:disabled { opacity: 0.4; cursor: default; }
-  button.primary { background: var(--red); border-color: var(--red); color: #fff; font-weight: 600; }
-  button.primary:hover { background: #a93226; border-color: #a93226; }
+  button.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+  button.primary:hover { background: var(--brand-dark); border-color: var(--brand-dark); }
 
   /* Tabs */
-  .tabs { display: flex; border-bottom: 1px solid var(--border); margin-bottom: 1.25rem; }
+  .tabs { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 1.25rem; }
   .tab {
-    font-size: 13px; padding: 8px 18px; cursor: pointer;
-    color: var(--text2); border-bottom: 2px solid transparent; margin-bottom: -1px;
+    font-size: 13px; font-weight: 600; padding: 9px 18px; cursor: pointer;
+    color: var(--text2); border-bottom: 3px solid transparent; margin-bottom: -2px;
   }
   .tab:hover { color: var(--text); }
-  .tab.active { color: var(--text); border-bottom-color: var(--red); font-weight: 600; }
+  .tab.active { color: var(--brand-dark); border-bottom-color: var(--brand); }
   .tab-count { font-size: 11px; color: var(--text3); margin-left: 3px; }
+
+  /* Section headers within results */
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.06em; margin: 1.4rem 0 0.6rem; color: var(--text2);
+  }
+  .section-header:first-child { margin-top: 0; }
+  .section-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
   /* Result cards */
   .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 0.9rem 1.1rem;
+    border-left: 4px solid var(--border2);
+    border-radius: var(--radius); padding: 0.95rem 1.15rem;
   }
   .card.full { grid-column: 1 / -1; }
+  .card.accent-gold { border-left-color: var(--gold); }
+  .card.accent-teal { border-left-color: var(--teal); }
+  .card.accent-blue { border-left-color: var(--blue); }
+  .card.accent-purple { border-left-color: var(--purple); }
+  .card.accent-brand { border-left-color: var(--brand); }
   .card-label {
-    font-size: 11px; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.07em; color: var(--text3); margin-bottom: 5px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--text3); margin-bottom: 5px;
   }
   .card-value { font-size: 14px; color: var(--text); line-height: 1.5; }
   .card-value.empty { color: var(--text3); font-style: italic; }
+  .card-value.big { font-size: 18px; font-weight: 700; }
   .notes-box {
     background: var(--surface2); border-radius: var(--radius-sm);
-    padding: 8px 12px; font-size: 13px; color: var(--text2); line-height: 1.6; margin-top: 6px;
+    padding: 9px 12px; font-size: 13px; color: var(--text2); line-height: 1.6; margin-top: 6px;
   }
+  .vendor-callout {
+    background: var(--teal-bg); border: 1px solid var(--teal-border);
+    border-radius: var(--radius-sm); padding: 12px 14px; font-size: 13.5px;
+    color: #0d5e49; line-height: 1.6; margin-top: 6px;
+  }
+  .vendor-callout a { color: #0d5e49; font-weight: 700; text-decoration: underline; }
+
+  /* Browse events grid */
+  .browse-toolbar { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; flex-wrap: wrap; }
+  .browse-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .browse-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem 1.15rem;
+    display: flex; flex-direction: column; gap: 8px;
+    box-shadow: 0 1px 3px rgba(46,38,32,0.05);
+  }
+  .browse-card-name { font-size: 15px; font-weight: 800; line-height: 1.3; }
+  .browse-card-meta { font-size: 12.5px; color: var(--text2); display: flex; flex-direction: column; gap: 2px; }
+  .browse-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 4px; }
+  .browse-card-price { font-size: 13px; font-weight: 700; color: #8a6410; }
+  .browse-scan-btn {
+    font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px;
+    background: var(--brand); color: #fff; border: none; cursor: pointer;
+  }
+  .browse-scan-btn:hover { background: var(--brand-dark); }
+  @media (max-width: 560px) { .browse-grid { grid-template-columns: 1fr; } }
 
   /* Badges */
   .badge {
-    display: inline-block; font-size: 11px; font-weight: 500;
-    padding: 2px 9px; border-radius: 20px; margin-right: 4px; margin-bottom: 3px;
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 20px; margin-right: 4px; margin-bottom: 3px;
   }
   .badge.gray { background: var(--surface2); color: var(--text2); border: 1px solid var(--border); }
   .badge.green { background: var(--green-bg); color: var(--green); border: 1px solid var(--green-border); }
   .badge.red { background: var(--red-bg); color: var(--red); border: 1px solid var(--red-border); }
   .badge.blue { background: var(--blue-bg); color: var(--blue); border: 1px solid var(--blue-border); }
-  .badge.amber { background: var(--amber-bg); color: var(--amber); border: 1px solid var(--amber-border); }
+  .badge.gold { background: var(--gold-bg); color: #8a6410; border: 1px solid var(--gold-border); }
+  .badge.teal { background: var(--teal-bg); color: #0d7a5f; border: 1px solid var(--teal-border); }
+  .badge.brand { background: var(--brand-bg); color: var(--brand-dark); border: 1px solid var(--brand-border); }
 
   .interest-btn {
-    font-size: 12px; font-weight: 600; padding: 5px 14px; border-radius: 20px;
+    font-size: 12px; font-weight: 700; padding: 6px 15px; border-radius: 20px;
     cursor: pointer; border: 1px solid var(--border); background: var(--surface2);
     color: var(--text2); font-family: inherit;
   }
@@ -150,23 +220,45 @@
   .interest-btn.interested { background: var(--green-bg); color: var(--green); border-color: var(--green-border); }
   .interest-btn.skip { background: var(--red-bg); color: var(--red); border-color: var(--red-border); }
 
-  .action-row { display: flex; gap: 8px; margin-top: 1rem; flex-wrap: wrap; }
+  .action-row { display: flex; gap: 8px; margin-top: 1.1rem; flex-wrap: wrap; }
 
   .placeholder {
-    background: var(--surface); border: 1px dashed var(--border2);
+    background: var(--surface); border: 2px dashed var(--border2);
     border-radius: var(--radius); padding: 3rem; text-align: center;
     color: var(--text3); font-size: 14px;
   }
+
+  /* Vendor policy reference panel (static, not scraped) */
+  .policy-panel {
+    background: var(--purple-bg); border: 1px solid var(--purple-border);
+    border-radius: var(--radius); padding: 1.1rem 1.25rem; margin-top: 1.5rem;
+  }
+  .policy-panel-header {
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    font-size: 13px; font-weight: 800; color: #5c3fa3;
+  }
+  .policy-panel-header .chev { transition: transform 0.15s; margin-left: auto; font-size: 12px; }
+  .policy-panel.open .chev { transform: rotate(180deg); }
+  .policy-list { display: none; margin-top: 12px; }
+  .policy-panel.open .policy-list { display: block; }
+  .policy-item {
+    display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--purple-border);
+    font-size: 13px; color: #4a3d78; line-height: 1.55;
+  }
+  .policy-item:last-child { border-bottom: none; }
+  .policy-item .pi-icon { flex-shrink: 0; font-size: 15px; }
+  .policy-item strong { color: #382c63; }
+  .policy-source { font-size: 11.5px; color: #7c6ba3; margin-top: 10px; font-style: italic; }
 
   /* History */
   .history-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; }
   .history-header span { font-size: 13px; color: var(--text2); }
   .event-row {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 0.85rem 1.1rem; margin-bottom: 8px;
+    background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--brand);
+    border-radius: var(--radius); padding: 0.9rem 1.15rem; margin-bottom: 8px;
   }
   .event-row-top { display: flex; justify-content: space-between; align-items: flex-start; }
-  .event-name { font-size: 14px; font-weight: 600; }
+  .event-name { font-size: 14px; font-weight: 700; }
   .event-meta { font-size: 12px; color: var(--text2); margin-top: 3px; }
   .event-badges { margin-top: 6px; }
   .delete-btn {
@@ -177,9 +269,9 @@
 
   /* Summary */
   .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1.25rem; }
-  .metric { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.1rem; }
-  .metric-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text3); margin-bottom: 4px; }
-  .metric-value { font-size: 26px; font-weight: 700; }
+  .metric { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.2rem; }
+  .metric-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text3); margin-bottom: 4px; }
+  .metric-value { font-size: 28px; font-weight: 800; color: var(--brand-dark); }
   .metric-sub { font-size: 12px; color: var(--text2); margin-top: 2px; }
   .empty-state { text-align: center; color: var(--text3); font-size: 14px; padding: 3rem 0; }
 
@@ -204,12 +296,12 @@
     <div class="logo">🌶</div>
     <div>
       <h1>Hot Sauce Event Finder</h1>
-      <p>Instantly pull vendor details from any drinkeatrelax.com event page</p>
+      <p>Instantly pull vendor details from drinkeatrelax.com — or paste a link from any other event site</p>
     </div>
   </div>
 
   <div class="info-box">
-    <strong>How to use:</strong> Go to <a href="https://www.drinkeatrelax.com/events/" target="_blank">drinkeatrelax.com/events</a>, click any event, copy the URL, paste it below and hit <strong>Scan</strong>.
+    <strong>How to use:</strong> Paste any event page URL below and hit <strong>Scan</strong> — works on drinkeatrelax.com and most other event listing sites.
     <div class="quick-links">
       <a class="quick-link" href="https://www.drinkeatrelax.com/events/category/beer-bourbon-bbq/" target="_blank">Beer, Bourbon & BBQ</a>
       <a class="quick-link" href="https://www.drinkeatrelax.com/events/category/wine-food/" target="_blank">Wine & Food</a>
@@ -221,16 +313,17 @@
   </div>
 
   <div class="scan-card">
-    <label>Event URL from drinkeatrelax.com</label>
+    <label>Event URL (any site)</label>
     <div class="url-row">
-      <input type="url" id="urlInput" placeholder="https://www.drinkeatrelax.com/event/..." />
+      <input type="url" id="urlInput" placeholder="Paste any event page URL..." />
       <button class="primary" id="scanBtn" onclick="scanUrl()">Scan</button>
     </div>
     <div class="status-bar" id="status"></div>
   </div>
 
   <div class="tabs">
-    <div class="tab active" onclick="switchTab('scan')">Scan results</div>
+    <div class="tab active" onclick="switchTab('scan')">Scan a URL</div>
+    <div class="tab" onclick="switchTab('browse')">Browse events</div>
     <div class="tab" onclick="switchTab('history')">Saved events <span class="tab-count" id="tabCount"></span></div>
     <div class="tab" onclick="switchTab('summary')">Summary</div>
   </div>
@@ -240,6 +333,41 @@
       <div class="placeholder">
         <div style="font-size:34px;margin-bottom:12px;">🔍</div>
         Paste a drinkeatrelax.com event URL above and hit <strong>Scan</strong>.
+      </div>
+    </div>
+
+    <!-- Static reference panel — always visible, not tied to a scan -->
+    <div class="policy-panel" id="policyPanel">
+      <div class="policy-panel-header" onclick="togglePolicyPanel()">
+        <span>📋</span> Vendor Policies Every Applicant Should Know <span class="chev">▾</span>
+      </div>
+      <div class="policy-list">
+        <div class="policy-item"><span class="pi-icon">💵</span><div><strong>Booth pricing isn't on the event page.</strong> Each event series publishes its own vendor application PDF on der411.com with exact booth prices (e.g. 10'x10' spaces typically range $350–$895 depending on category).</div></div>
+        <div class="policy-item"><span class="pi-icon">📝</span><div><strong>Deposits:</strong> Typically 50% is due when you submit your application, with the balance due before the event.</div></div>
+        <div class="policy-item"><span class="pi-icon">🕐</span><div><strong>Setup windows:</strong> Usually Friday 12–5pm and Saturday 8–11am, though this varies by venue — always confirm in your Event Manual.</div></div>
+        <div class="policy-item"><span class="pi-icon">📍</span><div><strong>Booth assignment:</strong> You can request a location, but assignments are finalized by show management and given out on arrival — not guaranteed in advance.</div></div>
+        <div class="policy-item"><span class="pi-icon">🪑</span><div><strong>Tables:</strong> Alcohol vendors are typically supplied one 6ft table; food vendors often are not — bring your own if unsure.</div></div>
+        <div class="policy-item"><span class="pi-icon">🔌</span><div><strong>Electricity</strong> is usually a separate add-on, not included in the base booth price.</div></div>
+        <div class="policy-item"><span class="pi-icon">🚫</span><div><strong>No sharing or reselling</strong> your booth space with another vendor — each vendor must apply individually.</div></div>
+        <div class="policy-source">Sourced from der411.com's vendor FAQ and application terms. Always confirm current details with sales@drinkeatrelax.com before applying, since policies can change per season.</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tab-browse" style="display:none;">
+    <div class="scan-card" style="margin-bottom:1rem;">
+      <label>Events listing page URL (any site)</label>
+      <div class="url-row">
+        <input type="url" id="browseUrlInput" placeholder="https://www.drinkeatrelax.com/events/" value="https://www.drinkeatrelax.com/events/" />
+        <button class="primary" id="loadEventsBtn" onclick="loadAllEvents()">Load events</button>
+      </div>
+      <div class="status-bar" id="browseStatus"></div>
+    </div>
+    <div id="browseGrid">
+      <div class="placeholder">
+        <div style="font-size:34px;margin-bottom:12px;">🎪</div>
+        Paste any site's events listing page above and click <strong>Load events</strong>.<br/>
+        <span style="font-size:12.5px;">Works on any site that embeds structured event data (most modern event sites do) and auto-detects pagination.</span>
       </div>
     </div>
   </div>
@@ -265,16 +393,80 @@
 
   window.addEventListener('load', updateCounts);
 
+  function togglePolicyPanel() {
+    document.getElementById('policyPanel').classList.toggle('open');
+  }
+
   function switchTab(t) {
     activeTab = t;
     document.querySelectorAll('.tab').forEach((el, i) =>
-      el.classList.toggle('active', ['scan', 'history', 'summary'][i] === t)
+      el.classList.toggle('active', ['scan', 'browse', 'history', 'summary'][i] === t)
     );
-    ['scan', 'history', 'summary'].forEach(id =>
+    ['scan', 'browse', 'history', 'summary'].forEach(id =>
       document.getElementById('tab-' + id).style.display = t === id ? '' : 'none'
     );
     if (t === 'history') renderHistory();
     if (t === 'summary') renderSummary();
+  }
+
+  async function loadAllEvents() {
+    const listingUrl = document.getElementById('browseUrlInput').value.trim();
+    if (!listingUrl) { alert('Please enter an events listing page URL.'); return; }
+
+    const btn = document.getElementById('loadEventsBtn');
+    const status = document.getElementById('browseStatus');
+    const grid = document.getElementById('browseGrid');
+
+    btn.disabled = true;
+    status.className = 'status-bar loading';
+    status.innerHTML = '<span class="spinner"></span>Loading events — this can take a few seconds...';
+    grid.innerHTML = '<div class="placeholder">Fetching the events list...</div>';
+
+    try {
+      const response = await fetch('/api/events?url=' + encodeURIComponent(listingUrl));
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Something went wrong');
+
+      if (!data.events || !data.events.length) {
+        grid.innerHTML = '<div class="placeholder">No events found on that page. This site may not use structured event data, or the URL might not be an events listing page.</div>';
+        status.className = 'status-bar';
+        status.textContent = '';
+        btn.disabled = false;
+        return;
+      }
+
+      status.className = 'status-bar ok';
+      status.textContent = `✓ ${data.events.length} events found across ${data.pagesCrawled} page${data.pagesCrawled !== 1 ? 's' : ''}`;
+      grid.innerHTML = `<div class="browse-grid">${data.events.map((e, i) => `
+        <div class="browse-card">
+          <div class="browse-card-name">${e.name}</div>
+          <div class="browse-card-meta">
+            <span>📅 ${e.date || 'Date TBA'}</span>
+            <span>📍 ${[e.venue, e.city].filter(Boolean).join(' · ') || 'Location TBA'}</span>
+          </div>
+          <div class="browse-card-footer">
+            <span class="browse-card-price">${e.ticket_price ? e.ticket_price : 'Price TBA'}</span>
+            ${e.url
+              ? `<button class="browse-scan-btn" onclick="scanFromBrowse('${e.url.replace(/'/g, "\\'")}')">Vendor details →</button>`
+              : `<span style="font-size:11px;color:var(--text3);">No link found</span>`
+            }
+          </div>
+        </div>
+      `).join('')}</div>`;
+
+    } catch (err) {
+      grid.innerHTML = `<div class="placeholder">Could not load events: ${err.message}</div>`;
+      status.className = 'status-bar error';
+      status.textContent = '';
+    }
+
+    btn.disabled = false;
+  }
+
+  function scanFromBrowse(url) {
+    document.getElementById('urlInput').value = url;
+    switchTab('scan');
+    scanUrl();
   }
 
   function v(val) {
@@ -331,7 +523,7 @@
     const output = document.getElementById('output');
 
     const reqs = d.additional_requirements && d.additional_requirements.length
-      ? d.additional_requirements.map(r => `<span class="badge amber">${r}</span>`).join('')
+      ? d.additional_requirements.map(r => `<span class="badge gold">${r}</span>`).join('')
       : '<span class="card-value empty">None detected</span>';
 
     const permitBadge = /likely/i.test(d.health_permit_required)
@@ -339,73 +531,87 @@
       : '<span class="card-value empty">Check with organizer</span>';
 
     output.innerHTML = `
+      <div class="section-header"><span class="section-dot" style="background:var(--brand);"></span>Event Snapshot</div>
       <div class="results-grid">
 
-        <div class="card full">
+        <div class="card full accent-brand">
           <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap;">
             <div>
               <div class="card-label">Event</div>
-              <div style="font-size:19px;font-weight:700;line-height:1.3;">${d.event_name || 'Unknown event'}</div>
-              ${d.event_type ? `<div style="margin-top:7px;"><span class="badge gray">${d.event_type}</span></div>` : ''}
+              <div style="font-size:19px;font-weight:800;line-height:1.3;">${d.event_name || 'Unknown event'}</div>
+              <div style="margin-top:7px;">
+                ${d.event_type ? `<span class="badge brand">${d.event_type}</span>` : ''}
+                ${d.source_site ? `<span class="badge gray">🌐 ${d.source_site}</span>` : ''}
+              </div>
             </div>
             <button class="interest-btn" id="intBtn" onclick="cycleInterest()">Mark interest</button>
           </div>
+          ${d.event_description ? `<div class="notes-box" style="margin-top:12px;">${d.event_description}</div>` : ''}
         </div>
 
-        <div class="card">
+        <div class="card accent-brand">
           <div class="card-label">Date</div>
           ${v(d.event_date)}
         </div>
-        <div class="card">
-          <div class="card-label">Time</div>
-          ${v(d.event_time)}
+        <div class="card accent-brand">
+          <div class="card-label">Time & duration</div>
+          <span class="card-value">${d.event_time || '<span class="empty">Not found</span>'}</span>
+          ${d.event_duration ? `<div style="margin-top:4px;"><span class="badge brand">⏱ ${d.event_duration}</span></div>` : ''}
         </div>
+      </div>
 
-        <div class="card full">
-          <div class="card-label">Venue & location</div>
+      <div class="section-header"><span class="section-dot" style="background:var(--blue);"></span>Location</div>
+      <div class="results-grid">
+        <div class="card full accent-blue">
+          <div class="card-label">Venue & address</div>
           ${v(d.location)}
         </div>
+      </div>
 
-        <div class="card">
-          <div class="card-label">Ticket / entry cost</div>
-          ${v(d.booth_fee)}
+      <div class="section-header"><span class="section-dot" style="background:var(--gold);"></span>Attendee Pricing</div>
+      <div class="results-grid">
+        <div class="card full accent-gold">
+          <div class="card-label">Attendee ticket price (not booth cost)</div>
+          <span class="card-value big">${d.ticket_price || '<span class="empty">Not found</span>'}</span>
         </div>
-        <div class="card">
+      </div>
+
+      <div class="section-header"><span class="section-dot" style="background:var(--teal);"></span>Vendor / Booth Info</div>
+      <div class="results-grid">
+        <div class="card full accent-teal">
+          <div class="card-label">💵 Booth / table cost — where to find it</div>
+          <div class="vendor-callout">${d.vendor_info_note}</div>
+        </div>
+        <div class="card accent-teal">
           <div class="card-label">Application deadline</div>
           ${v(d.application_deadline)}
         </div>
-
-        <div class="card">
+        <div class="card accent-teal">
           <div class="card-label">Health permit</div>
           ${permitBadge}
         </div>
-        <div class="card">
-          <div class="card-label">Expected attendance</div>
-          ${v(d.expected_attendance)}
-        </div>
-
-        <div class="card full">
+        <div class="card full accent-teal">
           <div class="card-label">Vendor contact</div>
           ${v(d.organizer_contact)}
         </div>
-
-        <div class="card full">
-          <div class="card-label">Vendor requirements</div>
+        <div class="card full accent-teal">
+          <div class="card-label">Requirements detected on this page</div>
           <div style="margin-top:4px;">${reqs}</div>
         </div>
-
         ${d.notes ? `
-        <div class="card full">
+        <div class="card full accent-teal">
           <div class="card-label">Notes</div>
           <div class="notes-box">${d.notes}</div>
         </div>` : ''}
+      </div>
 
+      <div class="results-grid" style="margin-top:10px;">
         <div class="card full">
           <div class="card-label">Source URL</div>
           <a href="${d.website}" target="_blank" style="font-size:13px;color:var(--blue);word-break:break-all;">${d.website}</a>
         </div>
-
       </div>
+
       <div class="action-row">
         <button class="primary" id="saveBtn" onclick="saveEvent()">Save to history</button>
         <button onclick="copyDetails()">Copy details</button>
@@ -455,8 +661,8 @@
             <div class="event-name">${e.event_name || 'Unknown event'}</div>
             <div class="event-meta">${[e.event_date, e.location?.split(',')[0]].filter(Boolean).join(' · ') || 'No date/location'}</div>
             <div class="event-badges">
-              ${e.event_type ? `<span class="badge gray">${e.event_type}</span>` : ''}
-              ${e.booth_fee ? `<span class="badge blue">${e.booth_fee}</span>` : ''}
+              ${e.event_type ? `<span class="badge brand">${e.event_type}</span>` : ''}
+              ${e.ticket_price ? `<span class="badge gold">${e.ticket_price}</span>` : ''}
               ${e._interest && e._interest !== 'none' ? `<span class="badge ${ic[e._interest]}">${il[e._interest]}</span>` : ''}
             </div>
           </div>
@@ -515,7 +721,7 @@
           ${Object.entries(byType).map(([t, n]) => `
             <div style="display:flex;justify-content:space-between;font-size:14px;padding:6px 0;border-bottom:1px solid var(--border);">
               <span>${t}</span>
-              <span style="color:var(--text2);font-weight:600;">${n}</span>
+              <span style="color:var(--text2);font-weight:700;">${n}</span>
             </div>
           `).join('')}
         </div>
@@ -529,7 +735,7 @@
             : intList.map(e => `
               <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);gap:10px;flex-wrap:wrap;">
                 <div>
-                  <div style="font-size:14px;font-weight:600;">${e.event_name || 'Unknown'}</div>
+                  <div style="font-size:14px;font-weight:700;">${e.event_name || 'Unknown'}</div>
                   <div style="font-size:12px;color:var(--text2);">${[e.event_date, e.location?.split(',')[0]].filter(Boolean).join(' · ')}</div>
                 </div>
                 <a href="${e.website}" target="_blank" style="font-size:12px;color:var(--blue);text-decoration:none;">View →</a>
@@ -543,8 +749,8 @@
 
   function exportCSV() {
     if (!savedEvents.length) return;
-    const cols = ['event_name','event_date','event_time','location','booth_fee','application_deadline',
-      'health_permit_required','expected_attendance','event_type','organizer_contact','website','notes','_interest','_scanned'];
+    const cols = ['event_name','event_description','event_date','event_time','event_duration','location','ticket_price','application_deadline',
+      'health_permit_required','event_type','organizer_contact','website','notes','_interest','_scanned'];
     const rows = [cols.join(',')];
     savedEvents.forEach(e => {
       rows.push(cols.map(c => {
@@ -564,13 +770,15 @@
     const d = currentResult;
     const lines = [
       `Event: ${d.event_name || '—'}`,
+      d.event_description ? `Description: ${d.event_description}` : null,
       `Date: ${d.event_date || '—'}`,
       `Time: ${d.event_time || '—'}`,
+      d.event_duration ? `Duration: ${d.event_duration}` : null,
       `Location: ${d.location || '—'}`,
-      `Cost: ${d.booth_fee || '—'}`,
+      `Attendee ticket price: ${d.ticket_price || '—'}`,
+      `Vendor booth cost: ${d.vendor_info_note || '—'}`,
       `Deadline: ${d.application_deadline || '—'}`,
       `Health permit: ${d.health_permit_required || '—'}`,
-      `Attendance: ${d.expected_attendance || '—'}`,
       `Contact: ${d.organizer_contact || '—'}`,
       `Website: ${d.website || '—'}`,
       d.notes ? `Notes: ${d.notes}` : null,
